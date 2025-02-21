@@ -1,40 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Map } from './components/Map';
 import { Sidebar } from './components/Sidebar';
 import { Analytics } from './components/Analytics';
 import { NewsPanel } from './components/NewsPanel';
-import { Sun, Moon } from 'lucide-react';
+import { Navbar } from './components/Navbar';
+import { Footer } from './components/Footer';
 import { useConflictStore } from './store/useConflictStore';
 
 function App() {
   const { theme, toggleTheme } = useConflictStore();
+  const [showConflictMap, setShowConflictMap] = useState(false);
 
   return (
     <div className={`${theme} ${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'}`}>
-      <div className="flex h-screen">
-        <Sidebar />
-        <div className="flex-1 flex flex-col">
-          <div className="h-12 bg-white dark:bg-gray-800 shadow flex items-center justify-end px-4">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
-            >
-              {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-            </button>
-          </div>
-          <div className="flex-1 grid grid-cols-2">
-            <div className="relative">
-              <Map />
+      <div className="min-h-screen flex flex-col">
+        <Navbar onToggleConflictMap={() => setShowConflictMap(!showConflictMap)} 
+                showConflictMap={showConflictMap}
+                onToggleTheme={toggleTheme}
+                theme={theme} />
+
+        <main className="flex-1">
+          {showConflictMap ? (
+            <div className="flex h-[calc(100vh-64px)]">
+              <Sidebar />
+              <div className="flex-1 grid grid-cols-2">
+                <div className="relative">
+                  <Map />
+                </div>
+                <div className="overflow-y-auto">
+                  <Analytics />
+                  <NewsPanel conflictNewsOnly />
+                </div>
+              </div>
             </div>
-            <div className="overflow-y-auto">
-              <Analytics />
+          ) : (
+            <div className="container mx-auto px-4 py-6">
               <NewsPanel />
             </div>
-          </div>
-        </div>
+          )}
+        </main>
+
+        <Footer />
       </div>
     </div>
   );
 }
 
-export default App;
+export default App

@@ -33,7 +33,7 @@ DiplomMap is a sophisticated geopolitical visualization platform that provides r
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/SUGAM-ARORA/diplomap.git
+   git clone https://github.com/yourusername/diplomap.git
    ```
 
 2. Install dependencies:
@@ -81,4 +81,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📧 Contact
 
-For questions or feedback, please [open an issue](https://github.com/SUGAM-ARORA/diplomap/issues) or contact the maintainers.
+For questions or feedback, please [open an issue](https://github.com/yourusername/diplomap/issues) or contact the maintainers.

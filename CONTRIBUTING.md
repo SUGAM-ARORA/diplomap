@@ -10,7 +10,7 @@ By participating in this project, you agree to abide by our [Code of Conduct](CO
 
 ### Reporting Bugs
 
-1. Check if the bug has already been reported in [Issues](https://github.com/SUGAM-ARORA/diplomap/issues)
+1. Check if the bug has already been reported in [Issues](https://github.com/yourusername/diplomap/issues)
 2. If not, create a new issue with:
    - Clear title and description
    - Steps to reproduce
