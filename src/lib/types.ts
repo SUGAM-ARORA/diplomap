@@ -9,6 +9,12 @@ export interface NewsItem {
   publishedAt: string;
   category?: string;
   sentiment?: 'positive' | 'negative' | 'neutral';
+  impact?: {
+    economic: number;
+    social: number;
+    political: number;
+  };
+  relatedConflicts?: string[];
 }
 
 export interface ElectionCandidate {
@@ -28,11 +34,82 @@ export type ConflictType = 'territorial' | 'civil' | 'religious' | 'economic' | 
 export type ConflictStatus = 'active' | 'ceasefire' | 'resolved' | 'historical';
 export type CountryStance = 'supporter' | 'opposition' | 'neutral';
 
+export interface ResourceDistribution {
+  type: string;
+  amount: number;
+  location: {
+    lat: number;
+    lng: number;
+  };
+  status: 'abundant' | 'scarce' | 'critical';
+  controlledBy: string;
+}
+
+export interface PopulationDisplacement {
+  from: {
+    lat: number;
+    lng: number;
+    country: string;
+  };
+  to: {
+    lat: number;
+    lng: number;
+    country: string;
+  };
+  count: number;
+  date: string;
+  reason: string;
+  status: 'ongoing' | 'completed' | 'planned';
+}
+
+export interface EconomicImpact {
+  gdpLoss: number;
+  infrastructureDamage: number;
+  currency: string;
+  tradeDisruption: {
+    imports: number;
+    exports: number;
+    affectedSectors: string[];
+  };
+  sanctions: {
+    imposedBy: string[];
+    targetedSectors: string[];
+    estimatedImpact: number;
+  }[];
+  resourceScarcity: {
+    resource: string;
+    severity: 'low' | 'medium' | 'high';
+    affectedRegions: string[];
+  }[];
+}
+
+export interface TensionZone {
+  location: {
+    lat: number;
+    lng: number;
+  };
+  intensity: number;
+  radius: number;
+  causes: string[];
+  relatedConflicts: string[];
+  lastUpdated: string;
+}
+
+export interface Alliance {
+  name: string;
+  members: string[];
+  type: 'military' | 'economic' | 'political';
+  strength: number;
+  formed: string;
+  dissolved?: string;
+  objectives: string[];
+}
+
 export interface Conflict {
   id: string;
   name: string;
   type: ConflictType;
-  intensity?: ConflictIntensity;
+  intensity: ConflictIntensity;
   location: {
     lat: number;
     lng: number;
@@ -46,11 +123,14 @@ export interface Conflict {
   parties: {
     name: string;
     stance: CountryStance;
+    strength: number;
+    resources: ResourceDistribution[];
   }[];
   casualties: {
     civilian: number;
     military: number;
     total: number;
+    displaced: number;
   };
   status: ConflictStatus;
   lastUpdated: string;
@@ -64,15 +144,25 @@ export interface Conflict {
   keyEvents: {
     date: string;
     description: string;
+    impact: {
+      political: number;
+      economic: number;
+      social: number;
+    };
   }[];
   alliances: {
-    supporters: string[];
-    opposition: string[];
-    neutral: string[];
+    supporters: Alliance[];
+    opposition: Alliance[];
+    neutral: Alliance[];
   };
-  economicImpact: {
-    gdpLoss: number;
-    infrastructureDamage: number;
-    currency: string;
-  };
+  economicImpact: EconomicImpact;
+  populationDisplacement: PopulationDisplacement[];
+  tensionZones: TensionZone[];
+  resourceControl: ResourceDistribution[];
+  timeline: {
+    date: string;
+    event: string;
+    type: 'escalation' | 'de-escalation' | 'neutral';
+    intensity: number;
+  }[];
 }
