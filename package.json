@@ -44,7 +44,7 @@
     "svelte-chartjs": "^3.1.2",
     "svelte-french-toast": "^1.2.0",
     "svelte-loading-spinners": "^0.3.4",
-    "three": "^0.146.0"
+    "three": "^0.174.0"
   },
   "type": "module"
 }
