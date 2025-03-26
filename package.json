@@ -37,7 +37,7 @@
     "chart.js": "^4.4.0",
     "d3": "^7.8.5",
     "date-fns": "^2.30.0",
-    "globe.gl": "^2.32.1",
+    "globe.gl": "^2.41.3",
     "leaflet": "^1.9.4",
     "leaflet.heat": "^0.2.0",
     "lucide-svelte": "^0.294.0",
