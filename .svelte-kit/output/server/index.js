@@ -1,4 +1,4 @@
-import { a as assets, b as base, o as override, r as reset, c as app_dir, p as public_env, s as safe_public_env, d as read_implementation, e as options, f as set_private_env, g as prerendering, h as set_public_env, i as get_hooks, j as set_safe_public_env, k as set_read_implementation } from "./chunks/internal.js";
+import { b as base, a as app_dir, c as assets, o as override, r as reset, p as public_env, s as safe_public_env, d as read_implementation, e as options, f as set_private_env, g as prerendering, h as set_public_env, i as get_hooks, j as set_safe_public_env, k as set_read_implementation } from "./chunks/internal.js";
 import * as devalue from "devalue";
 import { m as make_trackable, d as disable_search, a as decode_params, n as normalize_path, r as resolve, b as decode_pathname, v as validate_layout_server_exports, c as validate_layout_exports, e as validate_page_server_exports, f as validate_page_exports, g as validate_server_exports } from "./chunks/exports.js";
 import { w as writable, r as readable } from "./chunks/index.js";
@@ -348,15 +348,17 @@ function strip_data_suffix(pathname) {
   }
   return pathname.slice(0, -DATA_SUFFIX.length);
 }
-const ROUTE_SUFFIX = "/__route.js";
-function has_resolution_suffix(pathname) {
-  return pathname.endsWith(ROUTE_SUFFIX);
+const ROUTE_PREFIX = `${base}/${app_dir}/route`;
+function has_resolution_prefix(pathname) {
+  return pathname === `${ROUTE_PREFIX}.js` || pathname.startsWith(`${ROUTE_PREFIX}/`);
 }
-function add_resolution_suffix(pathname) {
-  return pathname.replace(/\/$/, "") + ROUTE_SUFFIX;
+function add_resolution_prefix(pathname) {
+  let normalized = pathname.slice(base.length);
+  if (normalized.endsWith("/")) normalized = normalized.slice(0, -1);
+  return `${ROUTE_PREFIX}${normalized}.js`;
 }
-function strip_resolution_suffix(pathname) {
-  return pathname.slice(0, -ROUTE_SUFFIX.length);
+function strip_resolution_prefix(pathname) {
+  return base + (pathname.slice(ROUTE_PREFIX.length, -3) || "/");
 }
 function is_action_json_request(event) {
   const accept = negotiate(event.request.headers.get("accept") ?? "*/*", [
@@ -1585,7 +1587,7 @@ async function render_response({
       }
     }
     if (manifest._.client.routes && state.prerendering && !state.prerendering.fallback) {
-      const pathname = add_resolution_suffix(event.url.pathname);
+      const pathname = add_resolution_prefix(event.url.pathname);
       state.prerendering.dependencies.set(
         pathname,
         create_server_routing_response(route, event.params, new URL(pathname, event.url), manifest)
@@ -2678,10 +2680,10 @@ async function respond(request, options2, manifest, state) {
     return text("Not found", { status: 404 });
   }
   let invalidated_data_nodes;
-  const is_route_resolution_request = has_resolution_suffix(url.pathname);
+  const is_route_resolution_request = has_resolution_prefix(url.pathname);
   const is_data_request = has_data_suffix(url.pathname);
   if (is_route_resolution_request) {
-    url.pathname = strip_resolution_suffix(url.pathname);
+    url.pathname = strip_resolution_prefix(url.pathname);
   } else if (is_data_request) {
     url.pathname = strip_data_suffix(url.pathname) + (url.searchParams.get(TRAILING_SLASH_PARAM) === "1" ? "/" : "") || "/";
     url.searchParams.delete(TRAILING_SLASH_PARAM);
@@ -2743,7 +2745,7 @@ async function respond(request, options2, manifest, state) {
     fetch: null,
     getClientAddress: state.getClientAddress || (() => {
       throw new Error(
-        `${"@sveltejs/adapter-auto"} does not specify getClientAddress. Please raise an issue`
+        `${"@sveltejs/adapter-vercel"} does not specify getClientAddress. Please raise an issue`
       );
     }),
     locals: {},

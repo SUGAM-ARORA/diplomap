@@ -15,14 +15,6 @@
       "_ssr.js"
     ]
   },
-  "_client.js": {
-    "file": "chunks/client.js",
-    "name": "client",
-    "imports": [
-      "_exports.js",
-      "_ssr2.js"
-    ]
-  },
   "_exports.js": {
     "file": "chunks/exports.js",
     "name": "exports"
@@ -53,11 +45,13 @@
     "file": "chunks/ssr2.js",
     "name": "ssr"
   },
-  "_theme.js": {
-    "file": "chunks/theme.js",
-    "name": "theme",
+  "_stores.js": {
+    "file": "chunks/stores.js",
+    "name": "stores",
     "imports": [
-      "_index.js"
+      "_ssr.js",
+      "_exports.js",
+      "_ssr2.js"
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/components/svelte-4/error.svelte": {
@@ -67,7 +61,7 @@
     "isEntry": true,
     "imports": [
       "_ssr.js",
-      "_client.js"
+      "_stores.js"
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/server/index.js": {
@@ -100,13 +94,12 @@
     "isEntry": true,
     "imports": [
       "_ssr.js",
-      "_client.js",
+      "_stores.js",
       "_index.js",
-      "_theme.js",
       "_Icon.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout.ud3bvIrx.css"
+      "_app/immutable/assets/_layout.BYRyZI4M.css"
     ]
   },
   "src/routes/+layout.ts": {
@@ -140,11 +133,7 @@
     "src": "src/routes/conflicts/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_ssr.js",
-      "_theme.js"
-    ],
-    "css": [
-      "_app/immutable/assets/_page.DrGzDUVW.css"
+      "_ssr.js"
     ]
   }
 }
