@@ -1,9 +1,21 @@
 <script lang="ts">
-  import { Globe, Sun, Moon, Search, Bell, User, TrendingUp, Newspaper, BarChart2, Bookmark } from 'lucide-svelte';
+  import { 
+    Globe, 
+    Sun, 
+    Moon, 
+    Search, 
+    Bell, 
+    User,
+    TrendingUp,
+    Newspaper,
+    BarChart2,
+    Bookmark
+  } from 'lucide-svelte';
   import { theme } from '$lib/stores/theme';
+  import { page } from '$app/stores';
 
-  let showConflictMap = false;
-
+  let showConflictMap = $page.url.pathname === '/conflicts';
+  
   function toggleTheme() {
     theme.update(t => t === 'light' ? 'dark' : 'light');
   }
@@ -14,13 +26,13 @@
     <div class="flex items-center justify-between h-16">
       <!-- Logo and Main Nav -->
       <div class="flex items-center gap-8">
-        <div class="flex items-center gap-2">
+        <a href="/" class="flex items-center gap-2">
           <Newspaper class="w-8 h-8 text-blue-600 dark:text-blue-400" />
           <span class="text-xl font-bold">DiplomMap</span>
-        </div>
+        </a>
         
         <div class="hidden md:flex items-center gap-6">
-          <a href="/" class="nav-link">
+          <a href="/trending" class="nav-link">
             <TrendingUp class="w-4 h-4" />
             <span>Top Stories</span>
           </a>
@@ -37,7 +49,7 @@
             class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-100 hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors"
           >
             <Globe class="w-4 h-4" />
-            Global Conflicts
+            {showConflictMap ? 'Back to News' : 'Global Conflicts'}
           </a>
         </div>
       </div>
@@ -56,14 +68,18 @@
 
       <!-- Right Side Nav -->
       <div class="flex items-center gap-4">
-        <button class="nav-button relative">
+        <button 
+          class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full relative"
+          aria-label="Notifications"
+        >
           <Bell class="w-5 h-5" />
           <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
         </button>
         
         <button
-          class="nav-button"
           on:click={toggleTheme}
+          class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full"
+          aria-label="Toggle theme"
         >
           {#if $theme === 'light'}
             <Moon class="w-5 h-5" />
@@ -72,7 +88,10 @@
           {/if}
         </button>
 
-        <button class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 dark:bg-gray-700">
+        <button 
+          class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 dark:bg-gray-700"
+          aria-label="Account"
+        >
           <User class="w-5 h-5" />
           <span class="hidden md:inline">Account</span>
         </button>
@@ -81,12 +100,16 @@
   </div>
 </nav>
 
+<!-- Mobile Menu Button -->
+<button
+  class="md:hidden fixed bottom-4 right-4 p-4 bg-blue-600 text-white rounded-full shadow-lg z-50"
+  aria-label="Menu"
+>
+  <Globe class="w-6 h-6" />
+</button>
+
 <style lang="postcss">
   .nav-link {
-    @apply flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400;
-  }
-
-  .nav-button {
-    @apply p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors;
+    @apply flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors;
   }
 </style>

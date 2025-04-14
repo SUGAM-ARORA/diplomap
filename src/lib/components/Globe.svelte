@@ -1,4 +1,3 @@
-```svelte
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte';
   import GlobeGL from 'globe.gl';
@@ -90,4 +89,3 @@
     position: relative;
   }
 </style>
-```
