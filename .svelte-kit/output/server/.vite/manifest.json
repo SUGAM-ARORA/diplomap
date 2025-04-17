@@ -1,0 +1,216 @@
+{
+  ".svelte-kit/generated/server/internal.js": {
+    "file": "internal.js",
+    "name": "internal",
+    "src": ".svelte-kit/generated/server/internal.js",
+    "isEntry": true,
+    "imports": [
+      "_internal.js"
+    ]
+  },
+  "_ArrowUp.svelte_svelte_type_style_lang.js": {
+    "file": "chunks/ArrowUp.svelte_svelte_type_style_lang.js",
+    "name": "ArrowUp.svelte_svelte_type_style_lang",
+    "imports": [
+      "_ssr.js"
+    ],
+    "css": [
+      "_app/immutable/assets/ArrowUp.DpIXxWAS.css"
+    ]
+  },
+  "_Icon.js": {
+    "file": "chunks/Icon.js",
+    "name": "Icon",
+    "imports": [
+      "_ssr.js"
+    ]
+  },
+  "_bar-chart-2.js": {
+    "file": "chunks/bar-chart-2.js",
+    "name": "bar-chart-2",
+    "imports": [
+      "_ssr.js",
+      "_Icon.js"
+    ]
+  },
+  "_bookmark.js": {
+    "file": "chunks/bookmark.js",
+    "name": "bookmark",
+    "imports": [
+      "_ssr.js",
+      "_Icon.js"
+    ]
+  },
+  "_exports.js": {
+    "file": "chunks/exports.js",
+    "name": "exports"
+  },
+  "_index.js": {
+    "file": "chunks/index.js",
+    "name": "index",
+    "imports": [
+      "_ssr.js"
+    ]
+  },
+  "_internal.js": {
+    "file": "chunks/internal.js",
+    "name": "internal",
+    "imports": [
+      "_ssr.js",
+      "_ssr2.js"
+    ],
+    "dynamicImports": [
+      "src/hooks.server.ts"
+    ]
+  },
+  "_news.js": {
+    "file": "chunks/news.js",
+    "name": "news"
+  },
+  "_ssr.js": {
+    "file": "chunks/ssr.js",
+    "name": "ssr"
+  },
+  "_ssr2.js": {
+    "file": "chunks/ssr2.js",
+    "name": "ssr"
+  },
+  "_stores.js": {
+    "file": "chunks/stores.js",
+    "name": "stores",
+    "imports": [
+      "_ssr.js",
+      "_exports.js",
+      "_ssr2.js"
+    ]
+  },
+  "_trending-up.js": {
+    "file": "chunks/trending-up.js",
+    "name": "trending-up",
+    "imports": [
+      "_ssr.js",
+      "_Icon.js"
+    ]
+  },
+  "node_modules/@sveltejs/kit/src/runtime/components/svelte-4/error.svelte": {
+    "file": "entries/fallbacks/error.svelte.js",
+    "name": "entries/fallbacks/error.svelte",
+    "src": "node_modules/@sveltejs/kit/src/runtime/components/svelte-4/error.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js",
+      "_stores.js"
+    ]
+  },
+  "node_modules/@sveltejs/kit/src/runtime/server/index.js": {
+    "file": "index.js",
+    "name": "index",
+    "src": "node_modules/@sveltejs/kit/src/runtime/server/index.js",
+    "isEntry": true,
+    "imports": [
+      "_internal.js",
+      "_exports.js",
+      "_index.js"
+    ]
+  },
+  "src/hooks.server.ts": {
+    "file": "chunks/hooks.server.js",
+    "name": "hooks.server",
+    "src": "src/hooks.server.ts",
+    "isDynamicEntry": true
+  },
+  "src/routes/+layout.server.ts": {
+    "file": "entries/pages/_layout.server.ts.js",
+    "name": "entries/pages/_layout.server.ts",
+    "src": "src/routes/+layout.server.ts",
+    "isEntry": true
+  },
+  "src/routes/+layout.svelte": {
+    "file": "entries/pages/_layout.svelte.js",
+    "name": "entries/pages/_layout.svelte",
+    "src": "src/routes/+layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js",
+      "_stores.js",
+      "_index.js",
+      "_Icon.js",
+      "_trending-up.js",
+      "_bar-chart-2.js",
+      "_bookmark.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_layout.BX-YK2iK.css"
+    ]
+  },
+  "src/routes/+layout.ts": {
+    "file": "entries/pages/_layout.ts.js",
+    "name": "entries/pages/_layout.ts",
+    "src": "src/routes/+layout.ts",
+    "isEntry": true
+  },
+  "src/routes/+page.server.ts": {
+    "file": "entries/pages/_page.server.ts.js",
+    "name": "entries/pages/_page.server.ts",
+    "src": "src/routes/+page.server.ts",
+    "isEntry": true
+  },
+  "src/routes/+page.svelte": {
+    "file": "entries/pages/_page.svelte.js",
+    "name": "entries/pages/_page.svelte",
+    "src": "src/routes/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js",
+      "_ArrowUp.svelte_svelte_type_style_lang.js",
+      "_news.js",
+      "_Icon.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.CcyUwhrA.css"
+    ]
+  },
+  "src/routes/conflicts/+page.svelte": {
+    "file": "entries/pages/conflicts/_page.svelte.js",
+    "name": "entries/pages/conflicts/_page.svelte",
+    "src": "src/routes/conflicts/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js"
+    ]
+  },
+  "src/routes/markets/+page.svelte": {
+    "file": "entries/pages/markets/_page.svelte.js",
+    "name": "entries/pages/markets/_page.svelte",
+    "src": "src/routes/markets/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js",
+      "_ArrowUp.svelte_svelte_type_style_lang.js",
+      "_bar-chart-2.js"
+    ]
+  },
+  "src/routes/saved/+page.svelte": {
+    "file": "entries/pages/saved/_page.svelte.js",
+    "name": "entries/pages/saved/_page.svelte",
+    "src": "src/routes/saved/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js",
+      "_ArrowUp.svelte_svelte_type_style_lang.js",
+      "_bookmark.js"
+    ]
+  },
+  "src/routes/trending/+page.svelte": {
+    "file": "entries/pages/trending/_page.svelte.js",
+    "name": "entries/pages/trending/_page.svelte",
+    "src": "src/routes/trending/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js",
+      "_ArrowUp.svelte_svelte_type_style_lang.js",
+      "_news.js",
+      "_trending-up.js"
+    ]
+  }
+}

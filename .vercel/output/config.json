@@ -1,0 +1,79 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "/conflicts",
+			"dest": "/conflicts/"
+		},
+		{
+			"src": "/conflicts/",
+			"status": 308,
+			"headers": {
+				"Location": "/conflicts"
+			}
+		},
+		{
+			"src": "/markets",
+			"dest": "/markets/"
+		},
+		{
+			"src": "/markets/",
+			"status": 308,
+			"headers": {
+				"Location": "/markets"
+			}
+		},
+		{
+			"src": "/saved",
+			"dest": "/saved/"
+		},
+		{
+			"src": "/saved/",
+			"status": 308,
+			"headers": {
+				"Location": "/saved"
+			}
+		},
+		{
+			"src": "/trending",
+			"dest": "/trending/"
+		},
+		{
+			"src": "/trending/",
+			"status": 308,
+			"headers": {
+				"Location": "/trending"
+			}
+		},
+		{
+			"src": "/_app/immutable/.+",
+			"headers": {
+				"cache-control": "public, immutable, max-age=31536000"
+			}
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "/.*",
+			"dest": "/fn"
+		}
+	],
+	"overrides": {
+		"index.html": {
+			"path": ""
+		},
+		"conflicts.html": {
+			"path": "conflicts"
+		},
+		"markets.html": {
+			"path": "markets"
+		},
+		"saved.html": {
+			"path": "saved"
+		},
+		"trending.html": {
+			"path": "trending"
+		}
+	}
+}
