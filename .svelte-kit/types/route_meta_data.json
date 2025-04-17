@@ -9,5 +9,17 @@
 	"/conflicts": [
 		"src/routes/+layout.ts",
 		"src/routes/+layout.server.ts"
+	],
+	"/markets": [
+		"src/routes/+layout.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/saved": [
+		"src/routes/+layout.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/trending": [
+		"src/routes/+layout.ts",
+		"src/routes/+layout.server.ts"
 	]
 }
