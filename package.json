@@ -48,7 +48,7 @@
     "three": "^0.154.0",
     "@deck.gl/core": "^8.9.32",
     "@deck.gl/layers": "^8.9.32",
-    "@deck.gl/geo-layers": "^8.9.32",
+    "@deck.gl/geo-layers": "^9.1.10",
     "mapbox-gl": "^2.15.0"
   },
   "type": "module"
