@@ -46,7 +46,7 @@
     "svelte-french-toast": "^1.2.0",
     "svelte-loading-spinners": "^0.3.4",
     "three": "^0.154.0",
-    "@deck.gl/core": "^8.9.32",
+    "@deck.gl/core": "^9.1.11",
     "@deck.gl/layers": "^8.9.32",
     "@deck.gl/geo-layers": "^8.9.32",
     "mapbox-gl": "^2.15.0"
