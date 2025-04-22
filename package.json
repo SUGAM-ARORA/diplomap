@@ -41,7 +41,7 @@
     "globe.gl": "^2.28.4",
     "leaflet": "^1.9.4",
     "leaflet.heat": "^0.2.0",
-    "lucide-svelte": "^0.294.0",
+    "lucide-svelte": "^0.503.0",
     "svelte-chartjs": "^3.1.2",
     "svelte-french-toast": "^1.2.0",
     "svelte-loading-spinners": "^0.3.4",
