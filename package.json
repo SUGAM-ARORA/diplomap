@@ -45,7 +45,7 @@
     "svelte-chartjs": "^3.1.2",
     "svelte-french-toast": "^1.2.0",
     "svelte-loading-spinners": "^0.3.4",
-    "three": "^0.154.0",
+    "three": "^0.176.0",
     "@deck.gl/core": "^8.9.32",
     "@deck.gl/layers": "^8.9.32",
     "@deck.gl/geo-layers": "^8.9.32",
